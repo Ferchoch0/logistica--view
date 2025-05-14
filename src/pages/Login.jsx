@@ -99,7 +99,7 @@ function Form() {
 
 }
 
-function Login(){
+function Login() {
     return (
         <div className="flex items-center justify-start min-h-screen min-w-screen bg-gray-900">
             <Form />
