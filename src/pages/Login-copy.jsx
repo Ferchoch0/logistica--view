@@ -4,10 +4,12 @@ import { FaTruckFast } from "react-icons/fa6";
 
 function Navbar() {
     return (
-        <nav className="fixed w-full bottom-8 z-50">
+        <nav className="fixed w-full top-0 z-50">
             <div className="mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-end items-center h-16">
-                    <div className="flex items-center justify-center gap-2 text-white font-extrabold uppercase"><img src='./logo.png' className='w-[350px] h-[350px]'></img></div>
+                <div className="flex justify-start h-16">
+                    <div className="flex items-center">
+                        <div className="flex items-center gap-2 text-white font-extrabold uppercase"><span className='pt-6 text-6xl'><FaTruckFast /></span></div>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -25,33 +27,36 @@ function Form() {
     }
 
     return (
-        <div className="flex justify-center items-center bg-[#181818] max-w-lg max-h-lg h-screen w-full z-20">
+        <div className="max-w-lg ml-[250px] w-full z-20">
             <div
-                className="overflow-hidden"
+                style={{
+                    boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+                }}
+                className="bg-[#1A1A2E] rounded-lg shadow-xl overflow-hidden"
             >
                 <div className="p-8">
-                    <div class="loader pb-8">
-                        <p>Expertos en</p>
-                        <div class="words">
-                            <span class="word">Envios</span>
-                            <span class="word">Transporte</span>
-                            <span class="word">Logistica</span>
-                            <span class="word">Distribucion</span>
-                            <span class="word">Envios</span>
+                        <div class="loader pb-8">
+                            <p>Expertos en</p>
+                            <div class="words">
+                                <span class="word">Envios</span>
+                                <span class="word">Transporte</span>
+                                <span class="word">Logistica</span>
+                                <span class="word">Distribucion</span>
+                                <span class="word">Envios</span>
+                            </div>
                         </div>
-                    </div>
 
                     <h2 className="text-4xl font-extrabold text-[#E0E0E0]">
                         Bienvenido de nuevo
                     </h2>
                     <p className="mt-4 text-[#A0A0A0]">Inicia sesión para administrar tus servicios.</p>
-                    <form onSubmit={handleSubmit} className="mt-8 space-y-16">
+                    <form onSubmit={handleSubmit} className="mt-8 space-y-6">
                         <div className="rounded-md shadow-sm space-y-4">
                             <div className="relative group">
-                                <span className="absolute -left-0.5 top-2 bottom-2 w-1.5 rounded bg-gradient-to-b from-[#4b79c5] to-[#334875] opacity-70 transition-all duration-300 group-focus-within:opacity-100"></span>
+                                <span className="absolute -left-0.5 top-2 bottom-2 w-1.5 rounded bg-gradient-to-b from-indigo-500 to-purple-500 opacity-70 transition-all duration-300 group-focus-within:opacity-100"></span>
                                 <input
                                     placeholder="Email address"
-                                    className="peer w-full pl-6 pr-4 pt-6 pb-2 text-sm bg-[#030704] border border-gray-200 rounded-lg shadow-md focus:border-transparent focus:ring-2 focus:ring-indigo-300 focus:outline-none transition-all duration-300 delay-200 placeholder-transparent"
+                                    className="peer w-full pl-6 pr-4 pt-6 pb-2 text-sm bg-[#0D0B1D] border border-gray-200 rounded-lg shadow-md focus:border-transparent focus:ring-2 focus:ring-indigo-300 focus:outline-none transition-all duration-300 delay-200 placeholder-transparent"
                                     required
                                     autoComplete="off"
                                     type="email"
@@ -62,17 +67,17 @@ function Form() {
                                 />
                                 <label
                                     htmlFor="email"
-                                    className={`absolute left-6 transition-all duration-200 ease-in-out peer-focus:top-1 peer-focus:text-sm peer-focus:text-[#4b79c5] peer-focus:font-semibold ${email ? "top-1 text-sm text-[#4b79c5] font-semibold" : "top-3.5 text-base text-gray-400"
+                                    className={`absolute left-6 transition-all duration-200 ease-in-out peer-focus:top-1 peer-focus:text-sm peer-focus:text-[#6C4DF5] peer-focus:font-semibold ${email ? "top-1 text-sm text-[#6C4DF5] font-semibold" : "top-3.5 text-base text-gray-400"
                                         }`}
                                 >
                                     Email
                                 </label>
                             </div>
                             <div className="relative group">
-                                <span className="absolute -left-0.5 top-2 bottom-2 w-1.5 rounded bg-gradient-to-b from-[#4b79c5] to-[#334875] opacity-70 transition-all duration-300 group-focus-within:opacity-100"></span>
+                                <span className="absolute -left-0.5 top-2 bottom-2 w-1.5 rounded bg-gradient-to-b from-indigo-500 to-purple-500 opacity-70 transition-all duration-300 group-focus-within:opacity-100"></span>
                                 <input
                                     placeholder="Password"
-                                    className="peer w-full pl-6 pr-4 pt-6 pb-2 text-sm bg-[#030704] border border-gray-200 rounded-lg shadow-md focus:border-transparent focus:ring-2 focus:ring-indigo-300 focus:outline-none transition-all duration-300 delay-200 placeholder-transparent"
+                                    className="peer w-full pl-6 pr-4 pt-6 pb-2 text-sm bg-[#0D0B1D] border border-gray-200 rounded-lg shadow-md focus:border-transparent focus:ring-2 focus:ring-indigo-300 focus:outline-none transition-all duration-300 delay-200 placeholder-transparent"
                                     required
                                     autoComplete="off"
                                     type="password"
@@ -83,7 +88,7 @@ function Form() {
                                 />
                                 <label
                                     htmlFor="password"
-                                    className={`absolute left-6 transition-all duration-200 ease-in-out peer-focus:top-1 peer-focus:text-sm peer-focus:text-[#4b79c5] peer-focus:font-semibold ${password ? "top-1 text-sm text-[#4b79c5] font-semibold" : "top-3.5 text-base text-gray-400"
+                                    className={`absolute left-6 transition-all duration-200 ease-in-out peer-focus:top-1 peer-focus:text-sm peer-focus:text-[#6C4DF5] peer-focus:font-semibold ${password ? "top-1 text-sm text-[#6C4DF5] font-semibold" : "top-3.5 text-base text-gray-400"
                                         }`}
                                 >
                                     Password
@@ -116,18 +121,19 @@ function Form() {
 
                         <div>
                             <button
-                                className="group/button relative inline-flex items-center justify-center overflow-hidden rounded-md bg-[#334875] backdrop-blur-lg px-6 py-2 text-base font-semibold text-white transition-all duration-300 ease-in-out hover:scale-110 border border-white/20"
+                                className="group relative w-full text-white flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md bg-[#6C4DF5] hover:bg-[#7C65E9] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#6C4DF5]"
                                 type="submit"
                             >
-                                <span class="text-lg">Login</span>
-                                <div
-                                    class="absolute inset-0 flex h-full w-full justify-center [transform:skew(-13deg)_translateX(-100%)] group-hover/button:duration-1000 group-hover/button:[transform:skew(-13deg)_translateX(100%)]"
-                                >
-                                    <div class="relative h-full w-10 bg-white/20"></div>
-                                </div>
+                                Sign In
                             </button>
                         </div>
                     </form>
+                </div>
+                <div className="px-8 py-4 bg-[#0D0B1D] text-center">
+                    <span className="text-[#A0A0A0]">Don't have an account?</span>
+                    <a className="font-medium text-[#6C4DF5] hover:text-[#7C65E9]" href="#">
+                        Sign up
+                    </a>
                 </div>
             </div>
         </div>
@@ -137,7 +143,13 @@ function Form() {
 function Login() {
     return (
         <div className="relative flex items-center justify-start min-h-screen min-w-screen z-0 bg-[url('/bg-login.jpg')] bg-cover bg-center bg-no-repeat">
-            <div className="absolute inset-0 bg-[#222d47] opacity-80 z-0 backdrop-blur-sm"></div>
+            <div
+                className="absolute inset-0 z-10"
+                style={{
+                    backgroundImage: "linear-gradient(48deg,rgb(11, 9, 22) 48%, transparent 130%)"
+                }}
+            ></div>
+            <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
             <Navbar />
             <Form />
         </div>
