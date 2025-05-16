@@ -1,4 +1,20 @@
 import { useState } from 'react'
+import '../assets/styles/Login.css'
+import { FaTruckFast } from "react-icons/fa6";
+
+function Navbar() {
+    return (
+        <nav className="fixed w-full top-0 z-50">
+            <div className="mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex justify-start h-16">
+                    <div className="flex items-center">
+                        <div className="flex items-center gap-2 text-white font-extrabold uppercase"><span className='pt-6 text-6xl'><FaTruckFast /></span></div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    )
+}
 
 function Form() {
     const [email, setEmail] = useState('')
@@ -19,10 +35,21 @@ function Form() {
                 className="bg-[#1A1A2E] rounded-lg shadow-xl overflow-hidden"
             >
                 <div className="p-8">
-                    <h2 className="text-center text-3xl font-extrabold text-[#E0E0E0]">
-                        Welcome Back
+                        <div class="loader pb-8">
+                            <p>Expertos en</p>
+                            <div class="words">
+                                <span class="word">Envios</span>
+                                <span class="word">Transporte</span>
+                                <span class="word">Logistica</span>
+                                <span class="word">Distribucion</span>
+                                <span class="word">Envios</span>
+                            </div>
+                        </div>
+
+                    <h2 className="text-4xl font-extrabold text-[#E0E0E0]">
+                        Bienvenido de nuevo
                     </h2>
-                    <p className="mt-4 text-center text-[#A0A0A0]">Sign in to continue</p>
+                    <p className="mt-4 text-[#A0A0A0]">Inicia sesión para administrar tus servicios.</p>
                     <form onSubmit={handleSubmit} className="mt-8 space-y-6">
                         <div className="rounded-md shadow-sm space-y-4">
                             <div className="relative group">
@@ -119,10 +146,11 @@ function Login() {
             <div
                 className="absolute inset-0 z-10"
                 style={{
-                    backgroundImage: "linear-gradient(48deg, #0D0B1D 48%, transparent 130%)"
+                    backgroundImage: "linear-gradient(48deg,rgb(11, 9, 22) 48%, transparent 130%)"
                 }}
             ></div>
             <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
+            <Navbar />
             <Form />
         </div>
     )
