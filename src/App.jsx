@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import './App.css'
-import Login from './pages/Login'
+import DashBoard from './pages/DashBoard'
 
 function App() {
   return (
-    <div className="App">
-      <Login />
+    <div className="App bg-[#0f101b]">
+      <DashBoard />
     </div>
   )
 }
