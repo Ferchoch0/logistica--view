@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import '../assets/styles/Navbar.css'
 import { FaRegUser} from "react-icons/fa";
 import { PiNutBold, PiGasPumpBold} from "react-icons/pi";
@@ -8,12 +8,20 @@ import { SiGooglecontaineroptimizedos } from "react-icons/si";
 import { VscReport } from "react-icons/vsc";
 import { GiPathDistance } from "react-icons/gi";
 import { RiAdminLine, RiSteering2Fill } from "react-icons/ri";
+import { useNavigate } from 'react-router-dom'; // <-- Agrega esta línea
 
 
 
 function Slidebar() {
+
+        const navigate = useNavigate();
+
+        const handleLogout = () => {
+            navigate('/login');
+        };
+
     return (
-        <nav className="flex justify-start items-center max-h-lg h-screen z-20">
+        <nav className="fixed flex justify-start items-center max-h-lg h-screen z-20">
             <div className="flex flex-col items-center justify-between h-screen w-64 bg-[#131321] pt-4 pb-4">
                 <h1 className="text-white text-2xl font-bold mb-8">BERETTA</h1>
                 <ul className="flex-1 flex flex-col items-start justify-start space-y-8 w-full">
@@ -49,7 +57,7 @@ function Slidebar() {
                     </li>
                 </ul>
                 <div className="flex items-center justify-center mt-4">
-                    <button className="bg-[#6C4DF5] text-white px-4 py-2 rounded hover:bg-[#7C65E9]">
+                    <button className="bg-[#6C4DF5] text-white px-4 py-2 rounded hover:bg-[#7C65E9]" onClick={handleLogout}>
                         Cerrar Sesión
                     </button>
                 </div>

@@ -1,0 +1,4 @@
+.bullet-orange::marker { color: #FF8C42; font-size: 2em;}
+.bullet-purple::marker { color: #6A4C93; font-size: 2em; }
+.bullet-blue::marker { color: #4FC3F7; font-size: 2em; }
+.bullet-green::marker { color: #43A047; font-size: 2em;}
