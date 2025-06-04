@@ -121,7 +121,7 @@ function VehiclesTable() {
 
 function Vehicles() {
     return (
-        <div className="vehicles-page">
+        <div>
             <Slidebar />
             <div className='flex w-full justify-end h-screen bg-[#131321]'>
                 <div className='flex w-[88%] h-screen'>
