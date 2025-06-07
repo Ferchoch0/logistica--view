@@ -8,6 +8,7 @@ import Employees from './pages/Employees'
 import Driver from './pages/Driver'
 import Pump from './pages/Pump'
 import Loads from './pages/Loads'
+import Road from './pages/Road'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path="/drivers" element={<Driver />} />
       <Route path="/pump" element={<Pump />} />
       <Route path="/loads" element={<Loads />} />
+      <Route path="/road" element={<Road />} />
     </Routes>
   )
 }

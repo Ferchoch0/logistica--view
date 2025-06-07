@@ -148,7 +148,7 @@ function Slidebar() {
                             </Link>
                         </li>
                         <li className="w-4/5">
-                            <Link to="/" className="inline-flex items-center gap-2 w-full text-white px-4 py-2 hover:text-[#1c77bc] hover:bg-[#142042] hover:border-l-4 hover:border-l-[#1c77bc] transition-all rounded">
+                            <Link to="/road" className="inline-flex items-center gap-2 w-full text-white px-4 py-2 hover:text-[#1c77bc] hover:bg-[#142042] hover:border-l-4 hover:border-l-[#1c77bc] transition-all rounded">
                                 <span><GiPathDistance /></span>Rutas
                             </Link>
                         </li>
