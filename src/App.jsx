@@ -5,6 +5,9 @@ import DashBoard from './pages/DashBoard'
 import Login from './pages/Login'
 import Vehicles from './pages/Vehicles'
 import Employees from './pages/Employees'
+import Driver from './pages/Driver'
+import Pump from './pages/Pump'
+import Loads from './pages/Loads'
 
 function App() {
   return (
@@ -13,8 +16,11 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/vehicles" element={<Vehicles />} />
       <Route path="/employees" element={<Employees />} />
+      <Route path="/drivers" element={<Driver />} />
+      <Route path="/pump" element={<Pump />} />
+      <Route path="/loads" element={<Loads />} />
     </Routes>
   )
 }
 
-export default App
+export default App 
