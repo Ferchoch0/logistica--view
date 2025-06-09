@@ -41,13 +41,13 @@ function Carousel() {
   const enable = (id) => {
     setSelectedId(id);
   };
-   const btAdd = (id, name, status) => {
-    const Add = {id, name, status};
+  const btAdd = (id, name, status) => {
+    const Add = { id, name, status };
     setAllItems([...allItems, Add]);
   }
   const btModify = (id, name, status) => {
     const Modify = allItems.map(item =>
-      item.id === id ? { ...item, name, status} : item
+      item.id === id ? { ...item, name, status } : item
     );
     setAllItems(Modify);
   };
@@ -55,11 +55,37 @@ function Carousel() {
     const newItems = allItems.filter(item => item.id !== id);
     setAllItems(newItems);
   }
+
+
   return (
-  <div className="flex gap-5 flex-col">
-    <h1 className="text-white text-4xl uppercase font-bold mb-4">Conductores</h1>
-      <div className="flex items-center gap-2">
-     
+    <div className="flex gap-5 flex-col">
+      <h1 className="text-white text-4xl uppercase font-bold mb-4">Conductores</h1>
+
+      <div className="space-x-3 w-full h-12">
+        <button
+          onClick={() => setShowAdd(true)}
+          className="cursor-pointer transition-all bg-[var(--color-primary)] text-white px-6 py-2 rounded-lg border-[#155a8a] border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px]"
+        >
+          Agregar
+        </button>
+        <button
+          disabled={!selectedItem}
+          onClick={() => setShowModify(true)}
+          className="cursor-pointer transition-all bg-[var(--color-primary)] text-white px-6 py-2 rounded-lg border-[#155a8a] border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px]"
+        >
+          Modificar
+        </button>
+        <button
+          disabled={!selectedItem}
+          onClick={() => setShowDelete(true)}
+          className="cursor-pointer transition-all bg-[var(--color-primary)] text-white px-6 py-2 rounded-lg border-[#155a8a] border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px]"
+        >
+          Eliminar
+        </button>
+      </div>
+
+      <div className="flex w-full justify-center items-center gap-2 mt-8">
+
         <button
           onClick={handlePrev}
           className="bg-[#1c77bc] text-white w-10 h-32 rounded-lg flex items-center justify-center hover:bg-blue-600 transition"
@@ -67,7 +93,7 @@ function Carousel() {
           <FaArrowLeft />
         </button>
 
-     
+
         {visibleItems.map((item) => (
           <div
             key={item.id}
@@ -87,7 +113,7 @@ function Carousel() {
           </div>
         ))}
 
-       
+
         <button
           onClick={handleNext}
           className="bg-[#1c77bc] text-white w-10 h-32 rounded-lg flex items-center justify-center hover:bg-blue-600 transition"
@@ -95,39 +121,18 @@ function Carousel() {
           <FaArrowRight />
         </button>
       </div>
-   <div className="flex gap-2">
-      <button
-      onClick={() => setShowAdd(true)}
-      className="cursor-pointer transition-all bg-[var(--color-primary)] text-white px-6 py-2 rounded-lg border-[#155a8a] border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px]"
-      >
-       Agregar
-      </button>
-      <button
-      disabled={!selectedItem}
-      onClick={() => setShowModify(true)}
-      className="cursor-pointer transition-all bg-[var(--color-primary)] text-white px-6 py-2 rounded-lg border-[#155a8a] border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px]"
-      >
-       Modificar
-      </button>
-      <button
-      disabled={!selectedItem}
-      onClick={() => setShowDelete(true)}
-      className="cursor-pointer transition-all bg-[var(--color-primary)] text-white px-6 py-2 rounded-lg border-[#155a8a] border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px]"
-      >
-      Eliminar
-      </button>
-   </div>
+
       <SelectedDriverTable driver={selectedItem} />
       {showAdd && (
-      <AddDriverForm onClose={() => setShowAdd(false)} onAdd={btAdd} />
+        <AddDriverForm onClose={() => setShowAdd(false)} onAdd={btAdd} />
       )}
       {showModify && selectedItem && (
-      <ModifyDriverForm onClose={() => setShowModify(false)} onModify={btModify} driver={selectedItem} />
+        <ModifyDriverForm onClose={() => setShowModify(false)} onModify={btModify} driver={selectedItem} />
       )}
       {showDelete && selectedItem && (
-      <DeleteDriverForm onClose={() => setShowDelete(false)} onDelete={btEliminate} driver={selectedItem} />
+        <DeleteDriverForm onClose={() => setShowDelete(false)} onDelete={btEliminate} driver={selectedItem} />
       )}
- </div>
+    </div>
   );
 }
 function AddDriverForm({ onClose, onAdd }) {
@@ -258,7 +263,7 @@ function DeleteDriverForm({ onClose, onDelete, driver }) {
           <button
             onClick={handleDelete}
             className="bg-[#1c77bc] text-white px-4 py-2 rounded hover:bg-blue-600 transition disabled:opacity-50"
-          
+
           >
             Eliminar
           </button>

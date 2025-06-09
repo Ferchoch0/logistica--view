@@ -3,6 +3,14 @@
   line-height: 1.5;
   font-weight: 400;
 
+  --bg-color: #fff;
+  --card-color: #f3f4f6;
+  --sub-card-color: #e5e7eb;
+  --interior-card-color: #f9fafb;
+  --text-color: #111827;
+  --sub-text-color: #5f6570;
+  --primary-color: #1c77bc;
+
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
@@ -11,5 +19,15 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.dark{
+  --bg-color: #0a0e1a;
+  --card-color: #111622;
+  --sub-card-color: #131a24;
+  --interior-card-color: #141d27;
+  --sub-text-color: #9ca3af;
+  --text-color: #eee;
+  --primary-color: #1c77bc;
 }
 
