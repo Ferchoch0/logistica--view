@@ -9,7 +9,8 @@
   --interior-card-color: #f9fafb;
   --text-color: #111827;
   --sub-text-color: #5f6570;
-  --primary-color: #1c77bc;
+  --color-primary: #1c77bc;
+  --dash-color: #111827;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);

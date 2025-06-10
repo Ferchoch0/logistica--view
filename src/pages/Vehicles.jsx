@@ -6,38 +6,38 @@ import { FaShippingFast, FaTimes } from "react-icons/fa";
 
 function VehicleSection({ number, type }) {
     return (
-        <div className="w-64 bg-[#161b28] p-9 space-y-3 relative overflow-hidden rounded-lg">
+        <div className="w-64 bg-[var(--card-color)] p-9 space-y-3 relative overflow-hidden rounded-lg">
             <div className="w-24 h-24 bg-[var(--color-primary)] rounded-full absolute -right-5 -top-7">
                 <p className="absolute bottom-6 left-7 text-white text-2xl">{number}</p>
             </div>
-            <span className="text-[#1c77bc] w-12 text-4xl">
-                <FaShippingFast />
+            <span className="text-[var(--text-color)] w-12 text-4xl">
+                <FaShippingFast/>
             </span>
 
-            <h1 className="font-bold text-xl text-white pt-4">{type}</h1>
+            <h1 className="font-bold text-xl text-[var(--text-color)] pt-4">{type}</h1>
         </div>
     );
 }
 function VehicleForm({ onClose }) {
     return (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-            <div className="relative bg-[#161b28] p-6 rounded-lg w-full max-w-md">
+        <div className="fixed inset-0 flex items-center justify-center z-50">
+            <div className="relative bg-[var(--card-color)] p-6 rounded-lg w-full max-w-md">
                 <button
                     onClick={onClose}
-                    className="absolute top-2 right-2 text-white text-xl hover:text-red-500"
+                    className="absolute text-[var(--text-color)] top-2 right-2 text-xl hover:text-red-500"
                 >
                     <FaTimes />
                 </button>
 
-                <h2 className="text-white text-2xl mb-4">Registrar Vehículo</h2>
+                <h2 className="text-[var(--text-color)] text-2xl mb-4">Registrar Vehículo</h2>
                 <form className="space-y-4">
                     <div>
-                        <label className="block text-white mb-2">Nombre del Vehículo</label>
-                        <input type="text" className="w-full p-2 rounded bg-[#222634] text-white" />
+                        <label className="block text-[var(--sub-text-color)] mb-2">Nombre del Vehículo</label>
+                        <input type="text" className="w-full p-2 rounded bg-[var(--sub-card-color)] text-[var(--text-color)]" />
                     </div>
                     <div>
-                        <label className="block text-white mb-2">Tipo de Vehículo</label>
-                        <select className="w-full p-2 rounded bg-[#222634] text-white">
+                        <label className="block text-[var(--sub-text-color)] mb-2">Tipo de Vehículo</label>
+                        <select className="w-full p-2 rounded bg-[var(--sub-card-color)] text-[var(--text-color)]">
                             <option>Camión</option>
                             <option>Furgoneta</option>
                             <option>Araña</option>
@@ -46,7 +46,7 @@ function VehicleForm({ onClose }) {
                     </div>
                     <button
                         type="submit"
-                        className="w-full bg-[var(--color-primary)] text-white px-4 py-2 rounded hover:bg-[var(--color-primary-hover)]"
+                        className="bg-[#1c77bc] text-white w-full px-4 py-2 rounded hover:bg-blue-600 transition disabled:opacity-50"
                     >
                         Registrar
                     </button>
@@ -61,7 +61,7 @@ function VehicleTitle() {
 
     return (
         <div className="flex flex-col items-start justify-between pb-4 rounded-lg mb-6">
-            <h1 className="text-white text-4xl uppercase font-bold mb-4">Vehículos</h1>
+            <h1 className="text-[var(--text-color)] text-4xl uppercase font-bold mb-4">Vehículos</h1>
 
             <div className="flex items-center justify-between w-full mb-4 h-12">
                 <button
@@ -94,7 +94,7 @@ function VehiclesTable() {
 
     return (
         <div>
-            <table className="min-w-full table-auto border-spacing-y-2 text-sm rounded-lg bg-[#111622]">
+            <table className="min-w-full table-auto border-spacing-y-2 text-sm rounded-lg bg-[var(--card-color)]">
                 <thead>
                     <tr className="text-left text-gray-400 uppercase tracking-wide">
                         <th className="px-4 py-2">ID</th>
@@ -105,11 +105,11 @@ function VehiclesTable() {
                 </thead>
                 <tbody>
                     {vehicles.map(vehicle => (
-                        <tr key={vehicle.id} className="bg-[#161b28] rounded-lg">
-                            <td className="px-4 py-2 text-white">{vehicle.id}</td>
-                            <td className="px-4 py-2 text-white">{vehicle.name}</td>
-                            <td className="px-4 py-2 text-white">{vehicle.type}</td>
-                            <td className="px-4 py-2 text-white">{vehicle.status}</td>
+                        <tr key={vehicle.id} className="bg-[var(--sub-card-color)] rounded-lg">
+                            <td className="px-4 py-2 text-[var(--text-color)]">{vehicle.id}</td>
+                            <td className="px-4 py-2 text-[var(--text-color)]">{vehicle.name}</td>
+                            <td className="px-4 py-2 text-[var(--text-color)]">{vehicle.type}</td>
+                            <td className="px-4 py-2 text-[var(--text-color)]">{vehicle.status}</td>
                         </tr>
                     ))}
                 </tbody>
@@ -125,7 +125,7 @@ function Vehicles() {
             <Slidebar />
             <div className='flex w-full justify-end h-screen bg-[#131321]'>
                 <div className='flex w-[88%] h-screen'>
-                    <div className="flex-1 bg-[#0a0e1a] p-8">
+                    <div className="flex-1 bg-[var(--bg-color)] p-8">
                         <Navbar />
                         <VehicleTitle />
                         <VehiclesTable />

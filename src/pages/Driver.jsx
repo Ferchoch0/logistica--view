@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Slidebar, Navbar } from '../components/Navbar';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { FaUser } from 'react-icons/fa6';
+import { FaShippingFast, FaTimes } from "react-icons/fa";
 // import '../assets/styles/Driver.css';
 
 function Carousel() {
@@ -59,7 +60,7 @@ function Carousel() {
 
   return (
     <div className="flex gap-5 flex-col">
-      <h1 className="text-white text-4xl uppercase font-bold mb-4">Conductores</h1>
+      <h1 className="text-[var(--text-color)] text-4xl uppercase font-bold mb-4">Conductores</h1>
 
       <div className="space-x-3 w-full h-12">
         <button
@@ -97,7 +98,7 @@ function Carousel() {
         {visibleItems.map((item) => (
           <div
             key={item.id}
-            className="bg-[#1c1c2b] text-white w-50 h-40 flex flex-col items-center justify-center rounded-lg shadow-md gap-1 p-2"
+            className="bg-[var(--card-color)] text-[var(--text-color)] w-50 h-40 flex flex-col items-center justify-center rounded-lg shadow-md gap-1 p-2"
           >
             <FaUser />
             <p className="font-bold">{item.name}</p>
@@ -148,15 +149,21 @@ function AddDriverForm({ onClose, onAdd }) {
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-      <div className="bg-[#161b28] p-6 rounded-lg w-full max-w-md">
-        <h2 className="text-white text-xl mb-4">Agregar Conductor</h2>
+      <div className="relative bg-[var(--card-color)] p-6 rounded-lg w-full max-w-md">
+        <button
+        onClick={onClose}
+        className="absolute text-[var(--text-color)] top-2 right-2 text-xl hover:text-red-500"
+        >
+        <FaTimes />
+        </button>
+        <h2 className="text-[var(--text-color)] text-xl mb-4">Agregar Conductor</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="number"
             placeholder="ID"
             value={id}
             onChange={(e) => setId(e.target.value)}
-            className="w-full p-2 rounded bg-[#222634] text-white"
+            className="w-full p-2 rounded bg-[var(--sub-card-color)] text-[var(--text-color)]"
             required
           />
           <input
@@ -164,13 +171,13 @@ function AddDriverForm({ onClose, onAdd }) {
             placeholder="Nombre"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full p-2 rounded bg-[#222634] text-white"
+            className="w-full p-2 rounded bg-[var(--sub-card-color)] text-[var(--text-color)]"
             required
           />
           <select
             value={status}
             onChange={(e) => setStatus(e.target.value)}
-            className="w-full p-2 rounded bg-[#222634] text-white"
+            className="w-full p-2 rounded bg-[var(--sub-card-color)] text-[var(--text-color)]"
           >
             <option>Disponible</option>
             <option>Ocupado</option>
@@ -178,17 +185,10 @@ function AddDriverForm({ onClose, onAdd }) {
           <div className="flex justify-between">
             <button
               type="submit"
-              className="bg-[#1c77bc] text-white px-4 py-2 rounded hover:bg-blue-600 transition disabled:opacity-50"
+              className="bg-[#1c77bc] text-white w-full px-4 py-2 rounded hover:bg-blue-600 transition disabled:opacity-50"
 
             >
               Agregar
-            </button>
-            <button
-              type="button"
-              onClick={onClose}
-              className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition disabled:opacity-50"
-            >
-              Cancelar
             </button>
           </div>
         </form>
@@ -209,20 +209,26 @@ function ModifyDriverForm({ onClose, onModify, driver }) {
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-      <div className="bg-[#161b28] p-6 rounded-lg w-full max-w-md">
-        <h2 className="text-white text-xl mb-4">Modificar Conductor</h2>
+       <div className="relative bg-[var(--card-color)] p-6 rounded-lg w-full max-w-md">
+        <button
+        onClick={onClose}
+        className="absolute text-[var(--text-color)] top-2 right-2 text-xl hover:text-red-500"
+        >
+        <FaTimes />
+        </button>
+        <h2 className="text-[var(--text-color)] text-xl mb-4">Modificar Conductor</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full p-2 rounded bg-[#222634] text-white"
+            className="w-full p-2 rounded bg-[var(--sub-card-color)] text-[var(--text-color)]"
             required
           />
           <select
             value={status}
             onChange={(e) => setStatus(e.target.value)}
-            className="w-full p-2 rounded bg-[#222634] text-white"
+            className="w-full p-2 rounded bg-[var(--sub-card-color)] text-[var(--text-color)]"
           >
             <option>Disponible</option>
             <option>Ocupado</option>
@@ -230,16 +236,9 @@ function ModifyDriverForm({ onClose, onModify, driver }) {
           <div className="flex justify-between">
             <button
               type="submit"
-              className="bg-[#1c77bc] text-white px-4 py-2 rounded hover:bg-blue-600 transition disabled:opacity-50"
+              className="bg-[#1c77bc] text-white w-full px-4 py-2 rounded hover:bg-blue-600 transition disabled:opacity-50"
             >
               Modificar
-            </button>
-            <button
-              type="button"
-              onClick={onClose}
-              className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition disabled:opacity-50"
-            >
-              Cancelar
             </button>
           </div>
         </form>
@@ -255,23 +254,23 @@ function DeleteDriverForm({ onClose, onDelete, driver }) {
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-      <div className="bg-[#161b28] p-6 rounded-lg w-full max-w-md text-white">
-        <h2 className="text-xl mb-4">Eliminar Conductor</h2>
-        <p>¿Estás seguro que deseas eliminar a <strong>{driver.name}</strong>?</p>
+    <div className="fixed inset-0 flex items-center justify-center z-50">
+       <div className="relative bg-[var(--card-color)] p-6 rounded-lg w-full max-w-md">
+        <button
+        onClick={onClose}
+        className="absolute text-[var(--text-color)] top-2 right-2 text-xl hover:text-red-500"
+        >
+        <FaTimes />
+        </button>
+        <h2 className="text-xl mb-4 text-[var(--text-color)]">Eliminar Conductor</h2>
+        <p className='text-[var(--sub-text-color)]'>¿Estás seguro que deseas eliminar a <strong>{driver.name}</strong>?</p>
         <div className="flex justify-between mt-4">
           <button
             onClick={handleDelete}
-            className="bg-[#1c77bc] text-white px-4 py-2 rounded hover:bg-blue-600 transition disabled:opacity-50"
+            className="bg-[#1c77bc] text-white w-full px-4 py-2 rounded hover:bg-blue-600 transition disabled:opacity-50"
 
           >
             Eliminar
-          </button>
-          <button
-            onClick={onClose}
-            className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition disabled:opacity-50"
-          >
-            Cancelar
           </button>
         </div>
       </div>
@@ -282,7 +281,7 @@ function DeleteDriverForm({ onClose, onDelete, driver }) {
 function SelectedDriverTable({ driver }) {
   if (!driver) {
     return (
-      <div className="text-center text-gray-400 p-4">
+      <div className="text-center text-[var(--sub-text-color)] p-4">
         Selecciona un conductor
       </div>
     );
@@ -291,17 +290,17 @@ function SelectedDriverTable({ driver }) {
     <div className="overflow-x-auto">
       <table className="min-w-full table-auto border-spacing-y-2 text-sm rounded-lg bg-[#111622]">
         <thead>
-          <tr className="text-left text-gray-400 uppercase tracking-wide">
+          <tr className="bg-[var(--card-color)] text-left text-gray-400 uppercase tracking-wide">
             <th className="px-4 py-2">ID</th>
             <th className="px-4 py-2">Nombre</th>
             <th className="px-4 py-2">Estado</th>
           </tr>
         </thead>
         <tbody>
-          <tr key={driver.id} className="bg-[#161b28]">
-            <td className="px-4 py-2 text-white">{driver.id}</td>
-            <td className="px-4 py-2 text-white">{driver.name}</td>
-            <td className="px-4 py-2 text-white">{driver.status}</td>
+          <tr key={driver.id} className="bg-[var(--sub-card-color)]">
+            <td className="px-4 py-2 text-[var(--text-color)]">{driver.id}</td>
+            <td className="px-4 py-2 text-[var(--text-color)]">{driver.name}</td>
+            <td className="px-4 py-2 text-[var(--text-color)]">{driver.status}</td>
           </tr>
         </tbody>
       </table>
@@ -314,9 +313,9 @@ function Driver() {
   return (
     <div className="driver-page">
       <Slidebar />
-      <div className="flex w-full justify-end h-screen bg-[#131321]">
+      <div className="flex w-full justify-end h-screen bg-[var(--bg-color)]">
         <div className="flex w-[88%] h-screen">
-          <div className="flex-1 bg-[#0a0e1a] p-8">
+          <div className="flex-1 bg-[var(--bg-color)] p-8">
             <Navbar />
             <Carousel />
           </div>

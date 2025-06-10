@@ -75,7 +75,7 @@ function Road_page() {
 
   return (
     <div>
-      <h1 className="text-white text-4xl uppercase font-bold mb-4">Rutas</h1>
+      <h1 className="text-[var(--text-color)] text-4xl uppercase font-bold mb-4 ">Rutas</h1>
 
       <div className="flex items-center gap-4 mb-4">
         <button
@@ -104,17 +104,17 @@ function Road_page() {
         </div>
 
       {showFilter && (
-        <div className="mb-4 mt-12 p-4 bg-[#1c1f2e] rounded-lg space-y-3 text-white">
-          <h3 className="text-lg font-semibold">Filtrar rutas</h3>
+        <div className="mb-4 mt-12 p-4 bg-[var(--bg-color)] rounded-lg space-y-3 text-white --text-color">
+          <h3 className="text-[var(--text-color)] font-semibold">Filtrar rutas</h3>
           <form className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <input type="text" placeholder="Matrícula" className="p-2 rounded bg-[#222634] text-white" />
-            <select className="p-2 rounded bg-[#222634] text-white">
+            <input type="text" placeholder="Matrícula" className="p-2 rounded bg-[var(--sub-card-color)] text-[var(--sub-text-color)]" />
+            <select className="p-2 rounded bg-[var(--sub-card-color)] text-[var(--text-color)]">
               <option value="">Estado</option>
               <option value="Proceso">Proceso</option>
               <option value="Finalizado">Finalizado</option>
             </select>
-            <input type="date" placeholder="Fecha inicio" className="p-2 rounded bg-[#222634] text-white" />
-            <input type="date" placeholder="Fecha finalización" className="p-2 rounded bg-[#222634] text-white" />
+            <input type="date" placeholder="Fecha inicio" className="p-2 rounded bg-[var(--sub-card-color)] text-[var(--sub-text-color)]" />    
+            <input type="date" placeholder="Fecha finalización" className="p-2 rounded bg-[var(--sub-card-color)] text-[var(--sub-text-color)]" />
             <button className="col-span-full bg-blue-600 hover:bg-blue-700 transition text-white px-4 py-2 rounded" type="submit">
               Aplicar filtros
             </button>
@@ -132,7 +132,7 @@ function Road_page() {
 function SelectedRoadTable({ road }) {
   return (
     <div className="overflow-x-auto mt-6">
-      <table className="min-w-full table-auto border-spacing-y-2 text-sm rounded-lg bg-[#111622]">
+      <table className="min-w-full table-auto border-spacing-y-2 text-sm rounded-lg bg-[var(--card-color)]">
         <thead>
           <tr className="text-left text-gray-400 uppercase tracking-wide">
             <th className="px-4 py-2">Partida</th>
@@ -145,13 +145,13 @@ function SelectedRoadTable({ road }) {
         </thead>
         <tbody>
           {road.map((item) => (
-            <tr key={item.id} className="bg-[#161b28]">
-              <td className="px-4 py-2 text-white">{item.Start}</td>
-              <td className="px-4 py-2 text-white">{item.Destiny}</td>
-              <td className="px-4 py-2 text-white">{item.status}</td>
-              <td className="px-4 py-2 text-white">{item.vehicle_registration}</td>
-              <td className="px-4 py-2 text-white">{item.startDate}</td>
-              <td className="px-4 py-2 text-white">{item.endDate}</td>
+            <tr key={item.id} className="bg-[var(--sub-card-color)">
+              <td className="px-4 py-2 text-[var(--text-color)]">{item.Start}</td>
+              <td className="px-4 py-2 text-[var(--text-color)]">{item.Destiny}</td>
+              <td className="px-4 py-2 text-[var(--text-color)]">{item.status}</td>
+              <td className="px-4 py-2 text-[var(--text-color)]">{item.vehicle_registration}</td>
+              <td className="px-4 py-2 text-[var(--text-color)]">{item.startDate}</td>
+              <td className="px-4 py-2 text-[var(--text-color)]">{item.endDate}</td>
             </tr>
           ))}
         </tbody>
@@ -175,18 +175,18 @@ function SelectedRoadTable({ road }) {
 function AddRoadForm({ onClose }) {
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-      <div className="bg-[#161b28] p-6 rounded-lg w-full max-w-md">
-        <h2 className="text-white text-xl mb-4">Agregar Ruta</h2>
+      <div className="bg-[var(--card-color)] p-6 rounded-lg w-full max-w-md">
+        <h2 className="text-[var(--text-color)] text-xl mb-4">Agregar Ruta</h2>
         <form className="space-y-4">
-          <input type="text" placeholder="Partida" className="w-full p-2 rounded bg-[#222634] text-white" required />
-          <input type="text" placeholder="Destino" className="w-full p-2 rounded bg-[#222634] text-white" required />
-          <select className="w-full p-2 rounded bg-[#222634] text-white">
+          <input type="text" placeholder="Partida" className="w-full p-2 rounded bg-[var(--sub-card-color)] text-[var(--sub-text-color)]" required />
+          <input type="text" placeholder="Destino" className="w-full p-2 rounded bg-[var(--sub-card-color)] text-[var(--sub-text-color)]" required />
+          <select className="w-full p-2 rounded bg-[var(--sub-card-color)] text-[var(--text-color)] ">
             <option>Proceso</option>
             <option>Finalizado</option>
           </select>
-          <input type="text" placeholder="Matrícula" className="w-full p-2 rounded bg-[#222634] text-white" required />
-          <input type="date" placeholder="Fecha inicio" className="w-full p-2 rounded bg-[#222634] text-white" required />
-          <input type="date" placeholder="Fecha finalización" className="w-full p-2 rounded bg-[#222634] text-white" />
+          <input type="text" placeholder="Matrícula" className="w-full p-2 rounded bg-[var(--sub-card-color)] text-[var(--sub-text-color)]" required />
+          <input type="date" placeholder="Fecha inicio" className="w-full p-2 rounded bg-[var(--sub-card-color)] text-[var(--sub-text-color)]" required />
+          <input type="date" placeholder="Fecha finalización" className="w-full p-2 rounded bg-[var(--sub-card-color)] text-[var(--sub-text-color)]" required />
 
           <div className="flex justify-between">
             <button type="submit" className="bg-[#1c77bc] text-white px-4 py-2 rounded hover:bg-blue-600 transition">Agregar</button>
@@ -201,11 +201,11 @@ function AddRoadForm({ onClose }) {
 function UpdateRoadStatusForm({ onClose }) {
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-      <div className="bg-[#161b28] p-6 rounded-lg w-full max-w-md">
-        <h2 className="text-white text-xl mb-4">Finalizar Ruta</h2>
+      <div className="bg-[var(--card-color)] p-6 rounded-lg w-full max-w-md">
+        <h2 className="text-[var(--text-color)] text-xl mb-4">Finalizar Ruta</h2>
         <form className="space-y-4">
-          <input type="text" placeholder="Matrícula del vehículo" className="w-full p-2 rounded bg-[#222634] text-white" required />
-          <input type="date" placeholder="Fecha finalización" className="w-full p-2 rounded bg-[#222634] text-white" required />
+          <input type="text" placeholder="Matrícula del vehículo" className="w-full p-2 rounded bg-[var(--sub-card-color)] text-[var(--sub-text-color)]" required />
+          <input type="date" placeholder="Fecha finalización" className="w-full p-2 rounded bg-[var(--sub-card-color)] text-[var(--sub-text-color)]" required />
 
           <div className="flex justify-between">
             <button type="submit" className="bg-[#1c77bc] text-white px-4 py-2 rounded hover:bg-blue-600 transition">Finalizar</button>
@@ -221,9 +221,9 @@ function Road() {
   return (
     <div className="road-page">
       <Slidebar />
-      <div className="flex w-full justify-end h-screen bg-[#131321]">
+      <div className="flex w-full justify-end h-screen bg-[var(--bg-color)]">
         <div className="flex w-[88%] h-screen">
-          <div className="flex-1 bg-[#0a0e1a] p-8">
+          <div className="flex-1 bg-[var(--bg-color)] p-8">
             <Navbar />
             <Road_page />
           </div>
