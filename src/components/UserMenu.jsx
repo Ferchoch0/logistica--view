@@ -12,7 +12,7 @@ import {
 
 function UserMenu() {
     return (
-        <div className="absolute top-25 right-7 w-[200px] bg-gradient-to-br from-[#242832] to-[#201e2c] rounded-[10px] py-[15px] flex flex-col gap-[10px] z-50">
+        <div className="absolute top-25 right-7 w-[200px] bg-[#161b28] rounded-[10px] py-[15px] flex flex-col gap-[10px] z-50">
             <ul className="list-none flex flex-col gap-2 px-[10px]">
                 <li className="flex items-center text-[#7e8590] gap-2 transition-all duration-300 ease-out px-[7px] py-[4px] rounded cursor-pointer hover:bg-[#1c77bc] hover:text-white hover:translate-x-[1px] hover:-translate-y-[1px] active:scale-95">
                     <span className="w-[19px] h-[19px]">

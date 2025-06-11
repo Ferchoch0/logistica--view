@@ -6,32 +6,32 @@ import { FaShippingFast, FaTimes } from "react-icons/fa";
 
 function EmployeeForm({ onClose }) {
     return (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-            <div className="relative bg-[#161b28] p-6 rounded-lg w-full max-w-md">
+        <div className="fixed inset-0 flex items-center justify-center z-50">
+            <div className="relative bg-[var(--card-color)] p-6 rounded-lg w-full max-w-md">
                 <button
                     onClick={onClose}
-                    className="absolute top-2 right-2 text-white text-xl hover:text-red-500"
+                    className="absolute top-2 right-2 text-[var(--text-color)] text-xl hover:text-red-500"
                 >
                     <FaTimes />
                 </button>
 
-                <h2 className="text-white text-2xl mb-4">Registrar Empleado</h2>
+                <h2 className="text-[var(--text-color)] text-2xl mb-4">Registrar Empleado</h2>
                 <form className="space-y-4">
                     <div>
-                        <label className="block text-white mb-2">Nombre del Empleado</label>
-                        <input type="text" className="w-full p-2 rounded bg-[#222634] text-white" />
+                        <label className="block text-[var(--sub-text-color)] mb-2">Nombre del Empleado</label>
+                        <input type="text" className="w-full p-2 rounded bg-[var(--sub-card-color)] text-[var(--text-color)]" />
                     </div>
                     <div>
-                        <label className="block text-white mb-2">Vehículo Asignado</label>
-                        <input type="text" className="w-full p-2 rounded bg-[#222634] text-white" />
+                        <label className="block text-[var(--sub-text-color)] mb-2">Vehículo Asignado</label>
+                        <input type="text" className="w-full p-2 rounded bg-[var(--sub-card-color)] text-[var(--text-color)]" />
                     </div>
                     <div>
-                        <label className="block text-white mb-2">Cargo</label>
-                        <input type="text" className="w-full p-2 rounded bg-[#222634] text-white" />
+                        <label className="block text-[var(--sub-text-color)] mb-2">Cargo</label>
+                        <input type="text" className="w-full p-2 rounded bg-[var(--sub-card-color)] text-[var(--text-color)]" />
                     </div>
                     <div>
-                        <label className="block text-white mb-2">Estado</label>
-                        <select className="w-full p-2 rounded bg-[#222634] text-white">
+                        <label className="block text-[var(--sub-text-color)] mb-2">Estado</label>
+                        <select className="w-full p-2 rounded bg-[var(--sub-card-color)] text-[var(--text-color)]">
                             <option>Activo</option>
                             <option>Inactivo</option>
                             <option>En Vacaciones</option>
@@ -39,16 +39,16 @@ function EmployeeForm({ onClose }) {
                         </select>
                     </div>
                     <div>
-                        <label className="block text-white mb-2">Teléfono</label>
-                        <input type="tel" className="w-full p-2 rounded bg-[#222634] text-white" />
+                        <label className="block text-[var(--sub-text-color)] mb-2">Teléfono</label>
+                        <input type="tel" className="w-full p-2 rounded bg-[var(--sub-card-color)] text-[var(--text-color)]" />
                     </div>
                     <div>
-                        <label className="block text-white mb-2">Correo Electrónico</label>
-                        <input type="email" className="w-full p-2 rounded bg-[#222634] text-white" />
+                        <label className="block text-[var(--sub-text-color)] mb-2">Correo Electrónico</label>
+                        <input type="email" className="w-full p-2 rounded bg-[var(--sub-card-color)] text-[var(--text-color)]" />
                     </div>
                     <button
                         type="submit"
-                        className="w-full bg-[var(--color-primary)] text-white px-4 py-2 rounded hover:bg-[var(--color-primary-hover)]">
+                        className="bg-[#1c77bc] text-white w-full px-4 py-2 rounded hover:bg-blue-600 transition disabled:opacity-50">
                         Registrar
                     </button>
                 </form>
@@ -60,10 +60,10 @@ function EmployeeForm({ onClose }) {
 function EmployeeAmount({ count }) {
     return (
         <div className="flex items-center justify-between mb-4 h-12">
-            <h2 className="text-white text-xl">Total de Empleados: {count}</h2>
+            <h2 className="text-[var(--text-color)] text-xl">Total de Empleados: {count}</h2>
             <div className="flex items-center gap-2">
-                <FaShippingFast className="text-white text-2xl" />
-                <span className="text-white text-lg">{count} Empleados</span>
+                <FaShippingFast className="text-[var(--text-color)] text-2xl" />
+                <span className="text-[var(--text-color)] text-lg">{count} Empleados</span>
             </div>
         </div>
     );
@@ -82,7 +82,7 @@ function EmployeeTitle() {
 
     return (
         <div className='flex flex-col mb-4'>
-            <h1 className='text-white text-4xl uppercase font-bold mb-4'>Empleados</h1>
+            <h1 className='text-[var(--text-color)] text-4xl uppercase font-bold mb-4'>Empleados</h1>
             <div className="flex items-center justify-between mb-4 h-12">
                 <button
                     onClick={handleAddEmployee}
@@ -106,19 +106,19 @@ function EmployeeTitle() {
 
 function EmployeeCard({ name, vehicle, position, status, phone, mail }) {
     return (
-        <div className="flex flex-col justify-start gap-4 items-center w-[280px] h-[230px] bg-[#161b28] p-4 rounded-lg overflow-hidden shadow-lg">
+        <div className="flex flex-col justify-start gap-4 items-center w-[280px] h-[230px] bg-[var(--card-color)] p-4 rounded-lg overflow-hidden shadow-lg">
             <div className='flex items-center w-full'>
                 <div className="card-img w-[70px] h-[70px] relative float-left rounded-full "></div>
                 <div className="flex flex-col justify-center items-start ml-4">
-                    <label className=''>{name}</label>
-                    <span>Vehicle: {vehicle}</span>
+                    <label className='text-[var(--text-color)]'>{name}</label>
+                    <span className='text-[var(--text-color)]'>Vehicle: {vehicle}</span>
                 </div>
             </div>
             <div className='flex flex-col items-start justify-start gap-1 w-full mt-2'>
-                <span className='text-[#1c77bc] text-sm'>Cargo: {position}</span>
-                <span className='text-[#1c77bc] text-sm'>Estado: {status}</span>
-                <span className='text-[#1c77bc] text-sm'>Teléfono: {phone}</span>
-                <span className='text-[#1c77bc] text-sm'>Correo: {mail}</span>
+                <span className='text-[var(--sub-text-color)] text-sm'>Cargo: {position}</span>
+                <span className='text-[var(--sub-text-color)] text-sm'>Estado: {status}</span>
+                <span className='text-[var(--sub-text-color)] text-sm'>Teléfono: {phone}</span>
+                <span className='text-[var(--sub-text-color)] text-sm'>Correo: {mail}</span>
             </div>
         </div>
     )
@@ -130,7 +130,7 @@ function Employees() {
             <Slidebar />
             <div className='flex w-full justify-end h-screen bg-[#131321]'>
                 <div className='flex w-[88%] h-screen'>
-                    <div className="flex-1 bg-[#0a0e1a] p-8">
+                    <div className="flex-1 bg-[var(--bg-color)] p-8">
                         <Navbar />
                         <EmployeeTitle />
                         <div className="grid grid-cols-5 w-full justify-items-center gap-10">
