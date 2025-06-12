@@ -5,7 +5,7 @@ import { FaGasPump, FaTimes } from "react-icons/fa";
 
 function PumpAmount({ number, description = "Gasolina" }) {
     return (
-        <div className="w-64 bg-[var(--bg-color)] p-9 space-y-3 relative overflow-hidden rounded-lg">
+        <div className="w-64 bg-[var(--card-color)] p-9 space-y-3 relative overflow-hidden rounded-lg">
             <div className="w-24 h-24 bg-[var(--color-primary)] rounded-full absolute -right-5 top-10">
                 <p className="absolute bottom-10 left-6 text-white text-2xl">{number}%</p>
             </div>
@@ -22,11 +22,11 @@ function PumpAmount({ number, description = "Gasolina" }) {
 }
 function PumpForm({ onClose }) {
     return (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/80">
             <div className="relative bg-[var(--bg-color)] p-6 rounded-lg w-full max-w-md">
                 <button
                     onClick={onClose}
-                    className="absolute top-2 right-2 text-white text-xl hover:text-red-500"
+                    className="absolute top-2 right-2 text-[var(--text-color)] text-xl hover:text-red-500 cursor-pointer"
                 >
                     <FaTimes />
                 </button>
@@ -34,11 +34,11 @@ function PumpForm({ onClose }) {
                 <h2 className="text-[var(--text-color)] text-2xl mb-4">Registrar Movimiento</h2>
                 <form className="space-y-4">
                     <div>
-                        <label className="block text-white mb-2">Matricula del vehiculo</label>
+                        <label className="block text-[var(--text-color)] mb-2">Matricula del vehiculo</label>
                         <input type="text" className="w-full p-2 rounded bg-[var(--sub-card-color)] text-[var(--sub-text-color)]" />
                     </div>
                     <div>
-                        <label className="block text-[var()] mb-2">Tipo de Movimiento</label>
+                        <label className="block text-[var(--text-color)] mb-2">Tipo de Movimiento</label>
                         <select className="w-full p-2 rounded  bg-[var(--sub-card-color)] text-[var(--text-color)]">
                             <option>Carga</option>
                             <option>Descarga</option>
@@ -91,9 +91,9 @@ function PumpTable() {
 
     return (
         <div>
-            <table className="min-w-full table-auto border-spacing-y-2 text-sm rounded-lg bg-[var(--card-color)] mt-8">
+            <table className="min-w-full table-auto border-spacing-y-2 text-sm rounded-lg mt-8">
                 <thead>
-                    <tr className="text-left text-gray-400 uppercase tracking-wide">
+                    <tr className="text-left text-gray-400 bg-[var(--sub-card-color)] uppercase tracking-wide">
                         <th className="px-4 py-2">ID</th>
                         <th className="px-4 py-2">Cantidad</th>
                         <th className="px-4 py-2">Tipo de Movimiento</th>
@@ -102,7 +102,7 @@ function PumpTable() {
                 </thead>
                 <tbody>
                     {movements.map(mov => (
-                        <tr key={mov.id} className="bg-[var(--sub-card-color) rounded-lg">
+                        <tr key={mov.id} className="bg-[var(--card-color)] rounded-lg">
                             <td className="px-4 py-2 text-[var(--text-color)]">{mov.id}</td>
                             <td className="px-4 py-2 text-[var(--text-color)]">{mov.amount}</td>
                             <td className="px-4 py-2 text-[var(--text-color)]">{mov.type}</td>

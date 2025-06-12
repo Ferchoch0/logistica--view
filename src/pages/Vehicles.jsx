@@ -20,11 +20,11 @@ function VehicleSection({ number, type }) {
 }
 function VehicleForm({ onClose }) {
     return (
-        <div className="fixed inset-0 flex items-center justify-center z-50">
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/80">
             <div className="relative bg-[var(--card-color)] p-6 rounded-lg w-full max-w-md">
                 <button
                     onClick={onClose}
-                    className="absolute text-[var(--text-color)] top-2 right-2 text-xl hover:text-red-500"
+                    className="absolute text-[var(--text-color)] top-2 right-2 text-xl hover:text-red-500 cursor-pointer"
                 >
                     <FaTimes />
                 </button>
