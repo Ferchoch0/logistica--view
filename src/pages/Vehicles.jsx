@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import '../assets/styles/Vehicles.css'
 import { Slidebar, Navbar } from '../components/Navbar'
-import { FaShippingFast, FaTimes } from "react-icons/fa";
-
+import { FaShippingFast, FaTimes, FaFilter} from "react-icons/fa";
 
 function VehicleSection({ number, type }) {
     return (
@@ -18,6 +17,44 @@ function VehicleSection({ number, type }) {
         </div>
     );
 }
+
+function Filter() {
+  const [showFilter, setShowFilter] = useState(false);
+    
+  return(
+    <div>
+        <div className="flex justify-end mb-2">
+        <button
+        onClick={() => setShowFilter(prev => !prev)}
+        className="flex items-center gap-2 px-4 py-2 bg-[#1c77bc] text-white rounded hover:bg-blue-600 transition"
+        >
+          <FaFilter />
+        Filtro
+        </button>
+        </div>
+
+      {showFilter && (
+        <div className="mb-4 mt-12 p-4 bg-[var(--bg-color)] rounded-lg space-y-3 text-white --text-color">
+          <h3 className="text-[var(--text-color)] font-semibold">Filtrar rutas</h3>
+          <form className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <input type="text" placeholder="Matrícula" className="p-2 rounded bg-[var(--sub-card-color)] text-[var(--sub-text-color)]" />
+            <select className="p-2 rounded bg-[var(--sub-card-color)] text-[var(--text-color)]">
+              <option value="">Estado</option>
+              <option value="Proceso">Proceso</option>
+              <option value="Finalizado">Finalizado</option>
+            </select>
+            <input type="date" placeholder="Fecha inicio" className="p-2 rounded bg-[var(--sub-card-color)] text-[var(--sub-text-color)]" />    
+            <input type="date" placeholder="Fecha finalización" className="p-2 rounded bg-[var(--sub-card-color)] text-[var(--sub-text-color)]" />
+            <button className="col-span-full bg-blue-600 hover:bg-blue-700 transition text-white px-4 py-2 rounded" type="submit">
+              Aplicar filtros
+            </button>
+          </form>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function VehicleForm({ onClose }) {
     return (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/80">
@@ -128,6 +165,7 @@ function Vehicles() {
                     <div className="flex-1 bg-[var(--bg-color)] p-8">
                         <Navbar />
                         <VehicleTitle />
+                        <Filter />
                         <VehiclesTable />
                     </div>
                 </div>

@@ -45,7 +45,7 @@ function LineChartOverview() {
     return (
         <div className="rounded-lg w-full max-w-2xl mx-auto">
             <div className="flex justify-end items-center mb-4">
-                <div className="text-[var(--text-color)] bg-[var(--sub-card-color)] px-3 py-1 rounded-md text-sm">Monthly</div>
+                <div className="text-[var(--text-color)] bg-[var(--sub-card-color)] px-3 py-1 rounded-md text-sm">Anual</div>
             </div>
             <ResponsiveContainer width="100%" height={250}>
                 <LineChart data={data}>
@@ -116,8 +116,8 @@ function DashBoard() {
     return (
         <div className="flex">
             <Slidebar />
-            <div className='flex w-full justify-end h-screen'>
-                <div className='flex w-[88%] h-screen'>
+            <div className='flex w-full justify-end h-full'>
+                <div className='flex w-[88%] h-full'>
                     <div className="flex-1 bg-[var(--bg-color)] p-8">
                         <Navbar />
                         <div className="flex gap-4 mb-4">
@@ -132,7 +132,7 @@ function DashBoard() {
                                 </div>
                             </div>
                             <div className="bg-[var(--card-color)] p-4 rounded-lg shadow-md flex-1">
-                                <h2 className="text-[var(--text-color)] text-lg font-semibold">Tipo de Vehiculos</h2>
+                                <h2 className="text-[var(--text-color)] text-lg font-semibold">Cantidad de vehiculos</h2>
                                 <div className="h-[260px] w-full">
                                     <DonutMetric />
                                 </div>
@@ -141,7 +141,7 @@ function DashBoard() {
 
                         <div className="flex gap-4 mb-4">
                             <div className="bg-[var(--card-color)] p-4 rounded-lg shadow-md w-auto">
-                                <h2 className="text-[var(--text-color)] text-lg font-semibold">Card 3</h2>
+                                <h2 className="text-[var(--text-color)] text-lg font-semibold">Regularidad de viajes</h2>
                                 <div className="flex w-[750px]">
                                     <LineChartOverview />
                                 </div>
@@ -151,10 +151,10 @@ function DashBoard() {
                                 <div className='flex items-center justify-around h-full'>
                                     <div>
                                         <ul>
-                                            <li className="list-disc text-[#1c77bc] text-[var(--text-color)]">Item1</li>
-                                            <li className="list-disc text-[#145c91] text-[var(--text-color)]">Item2</li>
-                                            <li className="list-disc text-[#1ca0dc] text-[var(--text-color)]">Item3</li>
-                                            <li className="list-disc text-[#51d1f6] text-[var(--text-color)]">Item4</li>
+                                            <li className="list-disc text-[#1c77bc] text-[var(--text-color)]">Camiones</li>
+                                            <li className="list-disc text-[#145c91] text-[var(--text-color)]">Furgonetas</li>
+                                            <li className="list-disc text-[#1ca0dc] text-[var(--text-color)]">Arañas</li>
+                                            <li className="list-disc text-[#51d1f6] text-[var(--text-color)]">Otros</li>
                                         </ul>
                                     </div>
                                     <div className="w-[300px]">

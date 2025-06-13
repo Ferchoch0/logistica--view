@@ -12,7 +12,7 @@ import Road from './pages/Road'
 
 function App() {
   return (
-    <Routes className='bg-[var(--bg-color)] text-white'>
+    <Routes className='bg-[var(--bg-color)] text-white h-[100%]'>
       <Route path="/" element={<DashBoard />} />
       <Route path="/login" element={<Login />} />
       <Route path="/vehicles" element={<Vehicles />} />
