@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import '../assets/styles/DashBoard.css'
 import { Slidebar, Navbar } from '../components/Navbar'
 import { FaArrowTrendUp, FaPersonCircleCheck } from "react-icons/fa6";
 import { FaGasPump, FaPeopleCarry, FaTruck } from "react-icons/fa";
@@ -67,34 +66,48 @@ function LineChartOverview() {
     );
 };
 
-function DonutMetric() {
-    const data = [
-        { name: 'Type A', value: 25 },
-        { name: 'Type B', value: 75 },
-    ];
+function DonutTooltip({ active, payload }) {
+    if (active && payload && payload.length) {
+        const { name, value } = payload[0];
+        return (
+            <div className="bg-[#1c77bc] text-white text-sm p-2 rounded-lg shadow">
+                <div className="font-bold">{name}</div>
+                <div>Valor: {value}</div>
+            </div>
+        );
+    }
+    return null;
+}
 
-    const COLORS = ['#1c77bc', '#145c91'];
+function DonutMetric({ title, porcentage, data }) {
+
+
+    const COLORS = ["#1c77bc", "#145c91", "#1ca0dc", "#51d1f6"];
 
     return (
         <div className="flex items-center justify-center p-4 w-full rounded-lg w-[300px] h-[300px]">
             <div className="absolute text-center text-[var(--text-color)]">
-                <h2 className="text-xl font-semibold">VEHICLES</h2>
-                <p className="text-3xl font-bold">5%</p>
+                <h2 className="text-xl font-semibold">{title}</h2>
+                <p className="text-3xl font-bold">{porcentage}</p>
             </div>
             <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                     <Pie
                         data={data}
                         innerRadius={80}
-                        outerRadius={100}
+                        outerRadius={108}
                         dataKey="value"
+                        nameKey='label'
                         startAngle={90}
                         endAngle={450}
+                        stroke="var(--card-color)"
+                        strokeWidth={4}
                     >
                         {data.map((_, index) => (
                             <Cell key={`cell-${index}`} fill={COLORS[index]} />
                         ))}
                     </Pie>
+                    <Tooltip content={<DonutTooltip />} />
                 </PieChart>
             </ResponsiveContainer>
         </div>
@@ -113,11 +126,24 @@ function DataCard({ icon, value, percentage, label }) {
 
 
 function DashBoard() {
+
+    const data1 = [
+        { label: 'Disponibles', value: 28 },
+        { label: 'No Disponibles', value: 23 },
+    ];
+
+    const data2 = [
+        { label: 'Arañas', value: 3 },
+        { label: 'Otros', value: 2 },
+        { label: 'Camiones', value: 10 },
+        { label: 'Furgonetas', value: 5 },
+    ];
+
     return (
         <div className="flex">
             <Slidebar />
             <div className='flex w-full justify-end h-full'>
-                <div className='flex w-[88%] h-full'>
+                <div className='flex w-[88%] min-h-screen h-full'>
                     <div className="flex-1 bg-[var(--bg-color)] p-8">
                         <Navbar />
                         <div className="flex gap-4 mb-4">
@@ -132,9 +158,10 @@ function DashBoard() {
                                 </div>
                             </div>
                             <div className="bg-[var(--card-color)] p-4 rounded-lg shadow-md flex-1">
-                                <h2 className="text-[var(--text-color)] text-lg font-semibold">Cantidad de vehiculos</h2>
+                                <h2 className="text-[var(--text-color)] text-lg font-semibold">Cantidad de vehiculos disponibles</h2>
                                 <div className="h-[260px] w-full">
-                                    <DonutMetric />
+                                    <DonutMetric title="VEHICULOS" porcentage="55%" data={data1} />
+
                                 </div>
                             </div>
                         </div>
@@ -150,15 +177,31 @@ function DashBoard() {
                                 <h2 className="text-[var(--text-color)] text-lg font-semibold">Tipos de Vehiculos</h2>
                                 <div className='flex items-center justify-around h-full'>
                                     <div>
-                                        <ul>
-                                            <li className="list-disc text-[#1c77bc] text-[var(--text-color)]">Camiones</li>
-                                            <li className="list-disc text-[#145c91] text-[var(--text-color)]">Furgonetas</li>
-                                            <li className="list-disc text-[#1ca0dc] text-[var(--text-color)]">Arañas</li>
-                                            <li className="list-disc text-[#51d1f6] text-[var(--text-color)]">Otros</li>
+                                        <ul className='space-y-4 text-xs'>
+                                            <li className="flex items-center gap-2 text-[var(--sub-text-color)]">
+                                                <span className="w-3 h-3 rounded-full bg-[#51d1f6] inline-block"></span>
+                                                Furgonetas
+                                            </li>
+
+                                            <li className="flex items-center gap-2 text-[var(--sub-text-color)]">
+                                                <span className="w-3 h-3 rounded-full bg-[#1ca0dc] inline-block"></span>
+                                                Camiones
+                                            </li>
+                                            
+                                            <li className="flex items-center gap-2 text-[var(--sub-text-color)]">
+                                                <span className="w-3 h-3 rounded-full bg-[#1c77bc] inline-block"></span>
+                                                Arañas
+                                            </li>
+
+                                            <li className="flex items-center gap-2 text-[var(--sub-text-color)]">
+                                                <span className="w-3 h-3 rounded-full bg-[#145c91] inline-block"></span>
+                                                Otros
+                                            </li>
                                         </ul>
                                     </div>
                                     <div className="w-[300px]">
-                                        <DonutMetric />
+                                        <DonutMetric title="TIPOS" porcentage="" data={data2} />
+
                                     </div>
                                 </div>
                             </div>
@@ -204,7 +247,7 @@ function DashBoard() {
                                     </table>
                                 </div>
                             </div>
-                            
+
                             <div className="bg-[var(--card-color)] rounded-lg shadow-md flex-1">
                                 <h2 className="text-[var(--text-color)] p-4 text-lg font-semibold">Actividad Reciente</h2>
                                 <div className="text-[var(--text-color)] rounded-lg">

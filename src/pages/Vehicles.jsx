@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import '../assets/styles/Vehicles.css'
 import { Slidebar, Navbar } from '../components/Navbar'
 import { FaShippingFast, FaTimes, FaFilter} from "react-icons/fa";
 
@@ -160,8 +159,8 @@ function Vehicles() {
     return (
         <div>
             <Slidebar />
-            <div className='flex w-full justify-end h-screen bg-[#131321]'>
-                <div className='flex w-[88%] h-screen'>
+            <div className='flex w-full justify-end h-full bg-[#131321]'>
+                <div className='flex w-[88%] min-h-screen h-full'>
                     <div className="flex-1 bg-[var(--bg-color)] p-8">
                         <Navbar />
                         <VehicleTitle />

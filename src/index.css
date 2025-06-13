@@ -5,6 +5,7 @@
 
   --bg-color: #fff;
   --card-color: #f3f4f6;
+  --menu-color: #e3eaf6;
   --sub-card-color: #e5e7eb;
   --interior-card-color: #f9fafb;
   --text-color: #111827;
@@ -24,10 +25,18 @@
 .dark{
   --bg-color: #0a0e1a;
   --card-color: #111622;
+  --menu-color: #161b28;
   --sub-card-color: #131a24;
   --interior-card-color: #141d27;
   --sub-text-color: #9ca3af;
   --text-color: #eee;
   --primary-color: #1c77bc;
+}
+
+body, [class*="bg-"], [class*="text-"], [class*="border-"] {
+  transition:
+    background-color 0.6s cubic-bezier(0.4,0,0.2,1),
+    color 0.6s cubic-bezier(0.4,0,0.2,1),
+    border-color 0.6s cubic-bezier(0.4,0,0.2,1);
 }
 

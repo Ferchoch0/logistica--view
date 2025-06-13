@@ -221,8 +221,8 @@ function Road() {
   return (
     <div className="road-page">
       <Slidebar />
-      <div className="flex w-full justify-end h-screen bg-[var(--bg-color)]">
-        <div className="flex w-[88%] h-screen">
+      <div className="flex w-full justify-end h-full bg-[var(--bg-color)]">
+        <div className="flex w-[88%] min-h-screen h-full">
           <div className="flex-1 bg-[var(--bg-color)] p-8">
             <Navbar />
             <Road_page />

@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import '../assets/styles/Navbar.css'
 import { FaRegUser, FaUser, FaSearch } from "react-icons/fa";
 import { PiNutBold, PiGasPumpBold } from "react-icons/pi";
 import { LuTruck } from "react-icons/lu";
@@ -7,8 +6,8 @@ import { MdPeopleOutline } from "react-icons/md";
 import { SiGooglecontaineroptimizedos } from "react-icons/si";
 import { VscReport } from "react-icons/vsc";
 import { GiPathDistance } from "react-icons/gi";
-import { RiAdminLine, RiSteering2Fill } from "react-icons/ri";
-import { useNavigate, Link } from 'react-router-dom';
+import { RiSteering2Fill } from "react-icons/ri";
+import { Link } from 'react-router-dom';
 import UserMenu from '../components/UserMenu';
 
 
@@ -26,7 +25,7 @@ function Navbar() {
         <div className='flex items-center justify-between mb-4'>
             <div className='flex items-center gap-4'>
                 <span className='flex items-center justify-center text-gray-600 rounded-full bg-gray-300 w-10 h-10'><FaUser /></span>
-                <p className="text-[var(--text-color)] text-2xl font-bold">Bienvenido Devuelta, User</p>
+                <p className="text-[var(--text-color)] text-2xl font-bold">Bienvenido De vuelta, User</p>
             </div>
             <div className='flex items-center gap-4'>
                 <button onClick={() => handleFormToggle()} className='bg-[#161b28] cursor-pointer text-white px-4 py-2 rounded-full w-12 h-12 hover:bg-[#1c77bc] flex items-center gap-2 mt-4'>
@@ -41,15 +40,6 @@ function Navbar() {
 
 
 function Slidebar() {
-
-    const navigate = useNavigate();
-
-    const handleNav = (path) => {
-        navigate(path);
-    };
-
-
-
 
     return (
         <nav className="fixed flex justify-start items-center w-[12%] max-h-lg h-screen z-20">
@@ -119,11 +109,6 @@ function Slidebar() {
 
                 </article>
 
-                <div className="flex items-center justify-center mt-4">
-                    <button className="bg-[#1c77bc] text-white px-4 py-2 rounded hover:bg-[#1c77bc]" onClick={() => handleNav('/login')}>
-                        Cerrar Sesión
-                    </button>
-                </div>
             </section>
         </nav>
     )

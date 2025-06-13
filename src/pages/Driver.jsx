@@ -151,10 +151,10 @@ function AddDriverForm({ onClose, onAdd }) {
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
       <div className="relative bg-[var(--card-color)] p-6 rounded-lg w-full max-w-md">
         <button
-        onClick={onClose}
-        className="absolute text-[var(--text-color)] top-2 right-2 text-xl hover:text-red-500"
+          onClick={onClose}
+          className="absolute text-[var(--text-color)] top-2 right-2 text-xl hover:text-red-500"
         >
-        <FaTimes />
+          <FaTimes />
         </button>
         <h2 className="text-[var(--text-color)] text-xl mb-4">Agregar Conductor</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -209,12 +209,12 @@ function ModifyDriverForm({ onClose, onModify, driver }) {
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-       <div className="relative bg-[var(--card-color)] p-6 rounded-lg w-full max-w-md">
+      <div className="relative bg-[var(--card-color)] p-6 rounded-lg w-full max-w-md">
         <button
-        onClick={onClose}
-        className="absolute text-[var(--text-color)] top-2 right-2 text-xl hover:text-red-500"
+          onClick={onClose}
+          className="absolute text-[var(--text-color)] top-2 right-2 text-xl hover:text-red-500"
         >
-        <FaTimes />
+          <FaTimes />
         </button>
         <h2 className="text-[var(--text-color)] text-xl mb-4">Modificar Conductor</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -255,12 +255,12 @@ function DeleteDriverForm({ onClose, onDelete, driver }) {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
-       <div className="relative bg-[var(--card-color)] p-6 rounded-lg w-full max-w-md">
+      <div className="relative bg-[var(--card-color)] p-6 rounded-lg w-full max-w-md">
         <button
-        onClick={onClose}
-        className="absolute text-[var(--text-color)] top-2 right-2 text-xl hover:text-red-500"
+          onClick={onClose}
+          className="absolute text-[var(--text-color)] top-2 right-2 text-xl hover:text-red-500"
         >
-        <FaTimes />
+          <FaTimes />
         </button>
         <h2 className="text-xl mb-4 text-[var(--text-color)]">Eliminar Conductor</h2>
         <p className='text-[var(--sub-text-color)]'>¿Estás seguro que deseas eliminar a <strong>{driver.name}</strong>?</p>
@@ -311,10 +311,10 @@ function SelectedDriverTable({ driver }) {
 
 function Driver() {
   return (
-    <div className="driver-page">
+    <div>
       <Slidebar />
-      <div className="flex w-full justify-end h-full bg-[var(--bg-color)]">
-        <div className="flex w-[88%] h-full">
+      <div className='flex w-full justify-end h-full bg-[#131321]'>
+        <div className='flex w-[88%] min-h-screen h-full'>
           <div className="flex-1 bg-[var(--bg-color)] p-8">
             <Navbar />
             <Carousel />
